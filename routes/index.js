@@ -18,6 +18,7 @@ router
     })
     .get('/dashboard', isUserAuthenticated, async (req, res) => {
         const { access_token, refresh_token, calendly_uid } = req.user;
+
         const calendlyService = new CalendlyService(
             access_token,
             refresh_token

@@ -1,13 +1,14 @@
 {{> nav}}
 <div class="container" style="margin-top: 50px;">
-  <div class="row">
-      <table class="striped centered">
-        <thead>
+  <div class="row section">
+      <table class="highlight responsive-table centered">
+        <thead class="green accent-1">
           <tr>
               <th>Name</th>
               <th>Date</th>
               <th>Start Time</th>
               <th>End Time</th>
+              <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -17,6 +18,7 @@
               <td>{{date}}</td>
               <td>{{start_time}}</td>
               <td>{{end_time}}</td>
+              <td>{{status}}</td>
             </tr>
           {{/each}}
         </tbody>
@@ -36,7 +38,7 @@
     loadMoreElement.addEventListener('click', async () => {
       const nextPageUrl = loadMoreElement.getAttribute('data-next-page');
       const nextPageQueryParams = nextPageUrl.slice(nextPageUrl.indexOf('?'));
-    
+
       const { events, pagination } = await fetch(`/api/scheduled_events${nextPageQueryParams}`).then(res => res.json());
 
       const tableBody = document.querySelector('tbody');
@@ -49,13 +51,13 @@
 
         const dateData = document.createElement('td');
         dateData.textContent = date;
-        
+
         const startTimeData = document.createElement('td');
         startTimeData.textContent = start_time;
-        
+
         const endTimeData = document.createElement('td');
         endTimeData.textContent = end_time;
-        
+
         tableRow.appendChild(nameData);
         tableRow.appendChild(dateData);
         tableRow.appendChild(startTimeData);

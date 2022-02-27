@@ -1,6 +1,6 @@
-# BuzzwordCRM
+# Busily
 
-BuzzwordCRM is a sample application that demonstrates how to build applications using Calendly's v2 api.
+Busily is a sample application that demonstrates how to build applications using Calendly's v2 api.
 
 ## Running the app locally
 
@@ -14,4 +14,3 @@ BuzzwordCRM is a sample application that demonstrates how to build applications 
 1. Run `npm install` to install dependencies.
 1. Run `npm start` to start the application.
 1. Navigate to `http://localhost:3000`.
-

@@ -64,8 +64,29 @@ class CalendlyService {
             this.getRequestConfiguration()
         );
 
+
         return data;
     };
+
+    getWebhookSubs = async (userUri, count, pageToken) => {
+        let queryParams = [
+
+        ].join('&');
+
+        if (pageToken) queryParams += `&page_token=${pageToken}`;
+
+        const url = `/webhook_subscriptions?${queryParams}`;
+
+        try {
+
+            var {data} = await this.request.get(url,this.getRequestConfiguration())
+
+        } catch (error) {
+            console.error(error.request);
+        }
+
+        return data
+    }
 
     requestNewAccessToken = () => {
         return axios.post(`${CALENDLY_AUTH_BASE_URL}/oauth/token`, {
